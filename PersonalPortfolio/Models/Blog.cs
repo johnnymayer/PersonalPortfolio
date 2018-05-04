@@ -14,5 +14,6 @@ namespace PersonalPortfolio.Models
         public int BlogId { get; set; }
         public string Author { get; set; }
         public string Content { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }

@@ -1,0 +1,20 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model PersonalPortfolio.Models.Blog
+
+<h2>Add New Blog Post</h2>
+<br />
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Author)
+    @Html.EditorFor(model => model.Author)
+    <br />
+    @Html.LabelFor(model => model.Content)
+    @Html.EditorFor(model => model.Content)
+    <br />
+    <input type="submit" value="Create" />
+}
+
+@Html.ActionLink("Back to Blogs", "Index")
