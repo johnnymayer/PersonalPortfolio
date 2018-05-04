@@ -7,19 +7,23 @@
 @using PersonalPortfolio.Models
 @using System.Security.Claims
 
+
+    <h1>Blogs</h1>
     <div class="container">
-        <p>@Html.ActionLink("Home", "Index", "Home")</p>
-        <p>@Html.ActionLink("Create", "Create")</p>
+        <ul style="padding: 0 auto;">
+            <li style="display:inline; text-align:center;">@Html.ActionLink("Home", "Index", "Home")</li> |
+            <li style="display:inline; text-align:center;">@Html.ActionLink("Create", "Create")</li>
+        </ul>
     </div>
+    <br />
     @if (Model.Any())
     {
-        @foreach(var blog in Model)
-        {
-        <div class="container">
-            <h1>@blog.Title</h1>
-            <h3>@blog.Author</h3>
-            @blog.Content
-            <hr />
-        </div>
+        @foreach(var blog in Model){
+            <div class="container" id="blog-list">
+                <h1>@blog.Title</h1>
+                <h3>@blog.Author</h3>
+                @blog.Content
+                <hr />
+            </div>
         }
     }
