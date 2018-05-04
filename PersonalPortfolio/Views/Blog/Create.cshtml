@@ -1,18 +1,21 @@
-﻿@{
+﻿@model PersonalPortfolio.Models.Blog
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-@model PersonalPortfolio.Models.Blog
 
 <h2>Add New Blog Post</h2>
 <br />
 @using (Html.BeginForm())
 {
     @Html.LabelFor(model => model.Author)
-    @Html.EditorFor(model => model.Author)
+    @Html.TextBoxFor(x => x.Author, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(model => model.Title)
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
     <br />
     @Html.LabelFor(model => model.Content)
-    @Html.EditorFor(model => model.Content)
+    @Html.TextAreaFor(x => x.Content, new { @class = "form-control" })
     <br />
     <input type="submit" value="Create" />
 }

@@ -1,13 +1,18 @@
 ﻿@{
+    ViewData["Title"] = "Blogs";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@using PersonalPortfolio.Models
 @using System.Security.Claims
 
     <p>@Html.ActionLink("Home", "Index", "Home")</p>
+    <p>@Html.ActionLink("Create", "Create")</p>
 
     @foreach(var blog in Model)
     {
-        @blog.Author
+        <h1>@blog.Title</h1>
+        <h3>@blog.Author</h3>
         @blog.Content
+        <hr />
     }
