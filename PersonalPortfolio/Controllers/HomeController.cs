@@ -13,23 +13,9 @@ namespace PersonalPortfolio.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult Blog()
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Error()
-        {
-            return View();
+            return View("Blog");
         }
     }
 }
