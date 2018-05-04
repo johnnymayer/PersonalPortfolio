@@ -1,0 +1,9 @@
+TO DO: 05/04/18 last edit 11:10am
+
+* Add roles for routing, i.e. if admin, can create blog, etc.
+* Display blogs only if guest
+
+* Add comments for blog posts
+* Double check all routing
+
+* Fix blog link on home page for routing if guest
