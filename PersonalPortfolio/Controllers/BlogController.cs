@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using PersonalPortfolio.Models;
 using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 namespace PersonalPortfolio.Controllers
 {
@@ -19,10 +20,11 @@ namespace PersonalPortfolio.Controllers
             _db = db;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var model = _db.Blogs.ToList();
-            return View(model);
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var currentUser = await _userManager.FindByIdAsync(userId);
+            return View("Index");
         }
 
 

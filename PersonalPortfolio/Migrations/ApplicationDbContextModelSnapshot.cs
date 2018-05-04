@@ -181,6 +181,8 @@ namespace PersonalPortfolio.Migrations
 
                     b.Property<string>("Content");
 
+                    b.Property<string>("Title");
+
                     b.HasKey("BlogId");
 
                     b.ToTable("Blogs");

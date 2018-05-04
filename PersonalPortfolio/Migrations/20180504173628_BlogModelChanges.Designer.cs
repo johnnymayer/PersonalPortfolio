@@ -8,8 +8,8 @@ using PersonalPortfolio.Models;
 namespace PersonalPortfolio.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180504162307_KeyLenFix")]
-    partial class KeyLenFix
+    [Migration("20180504173628_BlogModelChanges")]
+    partial class BlogModelChanges
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -181,6 +181,8 @@ namespace PersonalPortfolio.Migrations
                     b.Property<string>("Author");
 
                     b.Property<string>("Content");
+
+                    b.Property<string>("Title");
 
                     b.HasKey("BlogId");
 

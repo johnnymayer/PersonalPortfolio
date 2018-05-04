@@ -2,4 +2,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@using System.Security.Claims
+
     <p>@Html.ActionLink("Home", "Index", "Home")</p>
+
+    @foreach(var blog in Model)
+    {
+        @blog.Author
+        @blog.Content
+    }

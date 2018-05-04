@@ -30,4 +30,9 @@
     <Folder Include="ViewModels\" />
     <Folder Include="Views\Account\" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Migrations\20180504153104_Initial.cs" />
+    <Compile Remove="Migrations\20180504153104_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20180504162307_KeyLenFix.cs" />
+  </ItemGroup>
 </Project>
