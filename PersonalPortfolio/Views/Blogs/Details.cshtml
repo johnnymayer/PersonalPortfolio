@@ -5,9 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="leads">
     <h1 class="displayBlogs">@Html.DisplayFor(modelItem => Model.Title)</h1>
     <br />
     @Html.DisplayFor(modelItem => Model.Author)
     <br />
     @Html.DisplayFor(modelItem => Model.Content)
     <br />
+</div>

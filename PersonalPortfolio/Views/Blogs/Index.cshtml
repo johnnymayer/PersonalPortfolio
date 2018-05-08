@@ -13,9 +13,7 @@
         <br />
         @Html.DisplayFor(modelItem => item.Content)
         <br />
-        <p class="smallLink">@Html.ActionLink("Blog details", "Details", new{id = item.BlogId})</p>
+        @Html.ActionLink("Blog details", "Details", new{id = item.BlogId})
         <hr />
     </div>
 }
-
-@Html.ActionLink("Home", "Index", "Home")
