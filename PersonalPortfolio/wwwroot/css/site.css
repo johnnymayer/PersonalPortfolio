@@ -5,15 +5,42 @@
     color: white; 
 }
 
-.name-header, h1, h3 {
-    text-align:center;
+.head {
+    color: black;
+    font-size: 10vw;
+    text-shadow: 0 0 4vw #B777BE;
+    text-align: center;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    background: url('https://images.unsplash.com/photo-1446776858070-70c3d5ed6758?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9b43c5c75516f6ad53f828bd14cbd354&auto=format&fit=crop&w=2552&q=80') no-repeat center center;
 }
 
-hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid white;
-    margin: 1em 0;
-    padding: 0;
+.leads {
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
 }
+
+ul, li, a, .displayBlogs {
+    justify-content: center;
+    align-content: center;
+    text-decoration: none;
+    font-size: 3.5vw;
+    text-shadow: 0 0 48px white;
+    list-style: none;
+    color: #87B3A2;
+}
+
+    a:hover, displayBlogs:hover, li:hover {
+        color: #B777BE;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .smallLink {
+        color: white;
+        font-size: 12px;
+    }

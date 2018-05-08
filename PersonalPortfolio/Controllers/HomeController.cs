@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using PersonalPortfolio.Models;
 
 namespace PersonalPortfolio.Controllers
 {
@@ -16,6 +17,11 @@ namespace PersonalPortfolio.Controllers
         public IActionResult Blog()
         {
             return View("Blog");
+        }
+
+        public IActionResult Details()
+        {
+            return View();
         }
     }
 }

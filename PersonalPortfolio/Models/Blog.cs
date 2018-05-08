@@ -12,5 +12,6 @@ namespace PersonalPortfolio.Models
         public string Title { get; set; }
         public string Author { get; set; }
         public string Content { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

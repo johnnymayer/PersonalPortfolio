@@ -18,7 +18,9 @@ namespace PersonalPortfolio
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json");
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .AddEnvironmentVariables();
             Configuration = builder.Build();
         }
         public void ConfigureServices(IServiceCollection services)
@@ -49,7 +51,6 @@ namespace PersonalPortfolio
 
             if (env.IsDevelopment())
             {
-                app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
             }
             else
@@ -58,8 +59,6 @@ namespace PersonalPortfolio
             }
 
             app.UseStaticFiles();
-
-            app.UseIdentity();
 
             app.UseMvc(routes =>
             {

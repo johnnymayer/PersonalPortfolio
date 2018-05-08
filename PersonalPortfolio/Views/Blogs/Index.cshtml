@@ -1,0 +1,21 @@
+@model IEnumerable<PersonalPortfolio.Models.Blog>
+
+@{
+     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    <div class="container">
+        <h1 class="displayBlogs">@Html.DisplayFor(modelItem => item.Title)</h1>
+        @Html.DisplayFor(modelItem => item.Author)
+        <br />
+        @Html.DisplayFor(modelItem => item.Content)
+        <br />
+        <p class="smallLink">@Html.ActionLink("Blog details", "Details", new{id = item.BlogId})</p>
+        <hr />
+    </div>
+}
+
+@Html.ActionLink("Home", "Index", "Home")

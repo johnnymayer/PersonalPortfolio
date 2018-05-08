@@ -1,0 +1,17 @@
+﻿@model PersonalPortfolio.Models.Blog
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    @Html.DisplayFor(modelItem => Model.Title)
+    <br />
+    @Html.DisplayFor(modelItem => Model.Author)
+    <br />
+    @Html.DisplayFor(modelItem => Model.Content)
+    <br />
+</div>
+
+@Html.ActionLink("Blogs", "Index", "Blogs")
