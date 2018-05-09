@@ -5,19 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div id="display-blogs"></div>
+@using System.Security.Claims
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('.display-view').click(function () {
-            $.ajax({
-                type: 'GET',
-                dataType: 'html',
-                url: '@Url.Action("Details")',
-                success: function (result) {
-                    $('#display-blogs').html(result);
-                }
-            });
-        });
-    });
-</script>
+@if(User.Identity.IsAuthenticated)
+{
+    <h1 style="text-align:center">ADMIN ACCOUNT ACTIVE</h1>
+    <h2 style="text-align:center">@User.Identity.Name</h2>
+}
+else
+{
+    <h1> </h1>
+}

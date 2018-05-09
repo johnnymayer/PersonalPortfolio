@@ -58,6 +58,8 @@ namespace PersonalPortfolio
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseIdentity();
+
             app.UseStaticFiles();
 
             app.UseMvc(routes =>

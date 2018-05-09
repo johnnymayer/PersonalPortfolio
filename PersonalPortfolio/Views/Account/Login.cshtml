@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Log In";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using PersonalPortfolio.ViewModels
+
+@model LoginViewModel
+
+<h1 style="text-align:center">LOG IN</h1>
+<hr />
+<div class="container" style="text-align:center">
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(m => m.Email)
+    <br />
+    @Html.TextBoxFor(m => m.Email)
+    <br />
+    @Html.LabelFor(m => m.Password)
+    <br />
+    @Html.PasswordFor(m => m.Password)
+    <br />
+    <br />
+    <input type="submit" value="LOG IN" class="btn btn-default" style="text-align:center" />
+}
+</div>
