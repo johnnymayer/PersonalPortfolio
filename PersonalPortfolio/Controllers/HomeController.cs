@@ -23,5 +23,11 @@ namespace PersonalPortfolio.Controllers
         {
             return View();
         }
-    }
+
+        public IActionResult Projects()
+		{
+			return View("Projects");
+		}
+	
+	}
 }

@@ -20,7 +20,7 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="1.1.4" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="1.1.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="1.1.5" />
-
+    <PackageReference Include="RestSharp.NetCore" Version="105.2.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,10 +37,18 @@
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\js\" />
+    <Folder Include="Views\Projects\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Migrations\20180504153104_Initial.cs" />
     <Compile Remove="Migrations\20180504153104_Initial.Designer.cs" />
     <Compile Remove="Migrations\20180504162307_KeyLenFix.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="nuget.config" />
+    <Content Remove="Views\Home\Projects.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="nuget.config" />
   </ItemGroup>
 </Project>

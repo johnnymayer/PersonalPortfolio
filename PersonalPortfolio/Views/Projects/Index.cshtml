@@ -1,0 +1,18 @@
+﻿@model IEnumerable<PersonalPortfolio.Models.Projects>
+    @{
+    ViewData["Title"] = "Personal Portfolio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <h1>@ViewData["Title"]</h1>
+    <div class="container">
+        @foreach (var repo in Model)
+        {
+        <div class="container">
+            <ul class="list-unstyled">
+                <li>@Html.DisplayFor(modelItem => repo.Description)</li>
+                <li>@Html.DisplayFor(modelItem => repo.Url)</li>
+            </ul>
+        </div>
+        }
+    </div>
