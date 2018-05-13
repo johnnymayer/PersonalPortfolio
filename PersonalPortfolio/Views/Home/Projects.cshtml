@@ -1,21 +1,19 @@
-﻿@model IEnumerable<PersonalPortfolio.Models.Projects>
-
-@{ 
+﻿@model IEnumerable<PersonalPortfolio.Models.Repo>
+    @{
     ViewData["Title"] = "Personal Portfolio";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
+    }
 
-<h1>@ViewData["Title"]</h1>
-
-<div class="container">
-    @foreach (var repo in Model)
-    {
+    <h1>@ViewData["M"]</h1>
+    <div class="container">
+        @foreach(var allRepos in Model)
+        {
         <div class="container">
             <ul class="list-unstyled">
-                <li>@Html.DisplayFor(modelItem => repo.Description)</li>
-                <li>@Html.DisplayFor(modelItem => repo.Url)</li>
+                <li>@Html.DisplayFor(modelItem => allRepos.Description)</li>
+                <li>@Html.DisplayFor(modelItem => allRepos.UrlAddress)</li>
+                <li>@Html.DisplayFor(modelItem => allRepos.Language)</li>
             </ul>
         </div>
-
-    }
-</div>
+        }
+    </div>
