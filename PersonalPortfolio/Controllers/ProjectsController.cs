@@ -9,9 +9,11 @@ namespace PersonalPortfolio.Controllers
 {
     public class ProjectsController : Controller
     {
-        public IActionResult Index()
+		public IActionResult Index()
         {
-            return View();
+            ViewData["Message"] = "Personal Portfolio";
+            var allRepos = Repo.GetRepos();
+            return View("Projects");
         }
     }
 }

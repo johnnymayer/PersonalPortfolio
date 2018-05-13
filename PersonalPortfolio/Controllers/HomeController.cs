@@ -23,9 +23,11 @@ namespace PersonalPortfolio.Controllers
         {
             return View();
         }
-
-        public IActionResult Projects()
+        
+        public IActionResult ProjectList()
 		{
+			ViewData["Message"] = "Personal Portfolio";
+			var allRepos = Repo.GetRepos();
 			return View("Projects");
 		}
 	
