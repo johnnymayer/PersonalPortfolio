@@ -7,12 +7,14 @@
 
 @using System.Security.Claims
 
-@if(User.Identity.IsAuthenticated)
+@if (User.Identity.IsAuthenticated)
 {
     <h1 style="text-align:center">ADMIN ACCOUNT ACTIVE</h1>
     <h2 style="text-align:center">@User.Identity.Name</h2>
+    <h2 style="text-align:center">@Html.ActionLink("LOG OUT", "Index", "Home")</h2>
 }
 else
 {
-    <h1> </h1>
+    <h1>JOHNNY MAYER PERSONAL PORTFOLIO</h1>
+    <h3>CLICK AROUND, GET AROUND.</h3>
 }

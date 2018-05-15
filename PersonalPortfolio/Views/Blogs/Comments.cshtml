@@ -1,0 +1,8 @@
+@model PersonalPortfolio.Models.Blog
+
+    <form method="post" class="form-group">
+        <input class="form-control" type="hidden" name="postId" value="@Model.BlogId" />
+        <input class="form-control" type="text" name="author" placeholder="Your Name" />
+        <textarea class="form-control" name="content" placeholder="Your Comment"></textarea><br />
+        <button>Submit</button>
+    </form>

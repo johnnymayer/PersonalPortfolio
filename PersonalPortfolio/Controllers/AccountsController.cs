@@ -65,5 +65,13 @@ namespace PersonalPortfolio.Controllers
                 return View();
             }
         }
+
+        public async Task<IActionResult> LogOff()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

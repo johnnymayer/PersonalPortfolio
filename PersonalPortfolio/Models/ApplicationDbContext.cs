@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using PersonalPortfolio.Models;
 
 namespace PersonalPortfolio.Models
 {
@@ -30,5 +31,7 @@ namespace PersonalPortfolio.Models
                 entity.Property(m => m.Name).HasMaxLength(127); entity.Property(m => m.NormalizedName).HasMaxLength(127);
             });
         }
+
+        public DbSet<PersonalPortfolio.Models.Comment> Comment { get; set; }
     }
 }

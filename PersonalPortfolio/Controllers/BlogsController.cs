@@ -19,21 +19,21 @@ namespace PersonalPortfolio.Controllers
         }
 
         // GET: Blogs
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.Blogs.ToListAsync());
+            return View( _context.Blogs.ToList());
         }
 
         // GET: Blogs/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public IActionResult Details(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var blog = await _context.Blogs
-                .SingleOrDefaultAsync(m => m.BlogId == id);
+            var blog = _context.Blogs.Include(c => c.Comments)
+                .FirstOrDefault(m => m.BlogId == id);
             if (blog == null)
             {
                 return NotFound();
@@ -53,26 +53,26 @@ namespace PersonalPortfolio.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BlogId,Title,Author,Content")] Blog blog)
+        public IActionResult Create([Bind("BlogId,Title,Author,Content")] Blog blog)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(blog);
-                await _context.SaveChangesAsync();
+                _context.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(blog);
         }
 
         // GET: Blogs/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult Edit(int id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var blog = await _context.Blogs.SingleOrDefaultAsync(m => m.BlogId == id);
+            var blog = _context.Blogs.FirstOrDefault(m => m.BlogId == id);
             if (blog == null)
             {
                 return NotFound();
@@ -85,7 +85,7 @@ namespace PersonalPortfolio.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BlogId,Title,Author,Content")] Blog blog)
+        public IActionResult Edit(int id, [Bind("BlogId,Title,Author,Content")] Blog blog)
         {
             if (id != blog.BlogId)
             {
@@ -97,7 +97,7 @@ namespace PersonalPortfolio.Controllers
                 try
                 {
                     _context.Update(blog);
-                    await _context.SaveChangesAsync();
+                    _context.SaveChanges();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -116,31 +116,31 @@ namespace PersonalPortfolio.Controllers
         }
 
         // GET: Blogs/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public IActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var blog = await _context.Blogs
-                .SingleOrDefaultAsync(m => m.BlogId == id);
+            var blog =  _context.Blogs
+                .FirstOrDefault(m => m.BlogId == id);
             if (blog == null)
             {
                 return NotFound();
             }
 
-            return View(blog);
+            return View("Delete", blog);
         }
 
         // POST: Blogs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public IActionResult DeleteConfirmed(int id)
         {
-            var blog = await _context.Blogs.SingleOrDefaultAsync(m => m.BlogId == id);
+            var blog = _context.Blogs.FirstOrDefault(m => m.BlogId == id);
             _context.Blogs.Remove(blog);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -148,5 +148,13 @@ namespace PersonalPortfolio.Controllers
         {
             return _context.Blogs.Any(e => e.BlogId == id);
         }
+
+        public IActionResult Comments(int id)
+        {
+            var blog = _context.Blogs.FirstOrDefault(m => m.BlogId == id);
+            return PartialView(blog);
+        }
+
+
     }
 }

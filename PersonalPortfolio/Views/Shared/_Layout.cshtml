@@ -6,6 +6,22 @@
     <link rel='stylesheet' href='~/css/site.css' type='text/css'>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        $('.display-view').click(function () {
+            let blogId = $(this).attr("name");
+            $.ajax({
+                type: 'GET',
+                data: { id : blogId },
+                dataType: 'html',
+                url: '@Url.Action("Comments", "Blogs")',
+                success: function (result) {
+                    $('#comments').html(result);
+                }
+            });
+        });
+    });
+    </script>
 </head>
 <body>
     <div class="header">
@@ -25,14 +41,13 @@
 </body>
 <br />
 <footer>
-    @if (User.Identity.IsAuthenticated)
+    @if (!User.Identity.IsAuthenticated)
     {
-        @Html.ActionLink("LOG OUT", "Index", "Home")
+        <h1>ADMIN NOT LOGGED IN.</h1>
     }
     else
     {
         @Html.ActionLink("ADMIN", "Login", "Account")
-        <li><a href="/">HOME</a></li>
     }
 
 

@@ -4,8 +4,8 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<div class="leads">
+<div class="container" style="text-align:center">
+    <a class="leads">
     <br />
     <h1 class="displayBlogs">@Html.DisplayFor(modelItem => Model.Title)</h1>
     <br />
@@ -13,4 +13,32 @@
     <br />
     @Html.DisplayFor(modelItem => Model.Content)
     <br />
+    <div class="container" style="text-align:center;">
+        <a href="../Edit/@Model.BlogId">Update post.</a>
+        <a href="../Delete/@Model.BlogId">Delete post.</a>
+    </div>
+
 </div>
+
+
+<div class="container">
+    <hr />
+    @if (Model.Comments.Count > 0)
+    {
+        @foreach (var comment in Model.Comments)
+        {
+    <h3 style="text-align:center;">
+        @comment.CommentContent</h3>
+        }
+
+}
+else
+{
+        <h3 style="text-align:center;">
+            There are no comments.</h3>
+}
+
+</div>
+
+<h3 class="display-view" name="@Model.BlogId" style="text-align:center;">Click here to add a comment</h3>
+<div id="comments" class="container"></div>
