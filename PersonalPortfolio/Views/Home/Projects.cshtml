@@ -10,9 +10,12 @@
         {
         <div class="container">
             <ul class="list-unstyled">
-                <li>@Html.DisplayFor(modelItem => allRepos.Description)</li>
-                <li>@Html.DisplayFor(modelItem => allRepos.UrlAddress)</li>
-                <li>@Html.DisplayFor(modelItem => allRepos.Language)</li>
+                <h2>@Html.DisplayFor(modelItem => allRepos.Name) </h2>
+                <br />
+                <h2><a href="@Html.DisplayFor(model => allRepos.Html_url)">@Html.DisplayFor(model => allRepos.Html_url)</a></h2>
+                <br />
+                <h4>Description: @Html.DisplayFor(modelItem => allRepos.Description)</h4>
+                <hr />
             </ul>
         </div>
         }

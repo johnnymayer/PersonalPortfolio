@@ -27,7 +27,7 @@ namespace PersonalPortfolio.Controllers
         public IActionResult Projects()
 		{
 			var allRepos = Repo.GetRepos();
-			return View("Projects", allRepos);
+			return View(allRepos);
 		}
 	
 	}

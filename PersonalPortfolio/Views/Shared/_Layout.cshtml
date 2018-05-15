@@ -15,7 +15,7 @@
                 <li><a href="http://www.linkedin.com/in/johncmayer" target="_blank">FULL STACK DEVELOPER</a></li> | 
                 <li><a href="http://www.soundcloud.com/asphaltocean" target="_blank">SOUND DESIGNER</a></li> |
                 <li><a href="/Blogs">BLOG</a></li> |
-                <li><a href="/Projects">PROJECTS</a></li>
+                <li><a href="Home/Projects">PROJECTS</a></li>
             </ul>
         </div>
     </div>
@@ -25,6 +25,15 @@
 </body>
 <br />
 <footer>
-    @Html.ActionLink("ADMIN", "Login", "Account")
-    <li><a href="/">HOME</a></li>
+    @if (User.Identity.IsAuthenticated)
+    {
+        @Html.ActionLink("LOG OUT", "Index", "Home")
+    }
+    else
+    {
+        @Html.ActionLink("ADMIN", "Login", "Account")
+        <li><a href="/">HOME</a></li>
+    }
+
+
 </footer>

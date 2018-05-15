@@ -9,13 +9,13 @@ namespace PersonalPortfolio.Models
 {
     public class Repo
     {
-        public string UrlAddress { get; set; }
+        public string Name { get; set; }
+        public string Html_url { get; set; }
         public string Description { get; set; }
-        public string Language { get; set; }
 
         public static List<Repo> GetRepos()
         {
-            var client = new RestClient("https://api.github.com");
+            var client = new RestClient("https://api.github.com/");
             var request = new RestRequest("search/repositories?q=user:johnnymayer&sort=stars&order=desc&per_page=3");
 
             var response = new RestResponse();
